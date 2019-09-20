@@ -6,27 +6,21 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 15:56:37 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/18 20:12:31 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/19 12:36:44 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
 void	*ft_memalloc(size_t size)
 {
-	int		*ptr;
-	size_t	i;
-	void	*ptr2;
-
-	i = 0;
-	ptr = (int *)malloc(size);
+	void	*ptr;
+	
+	ptr = (void *)malloc(sizeof(void) * size);
 	if (!ptr)
 		return (NULL);
 	else
-	{
-		while (i < size)
-			ptr[i++] = 0;
-	}
-	ptr2 = (void *)ptr;
+		ft_bzero(ptr, size);
 	return (ptr);
 }

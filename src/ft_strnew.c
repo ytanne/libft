@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 08:48:01 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/19 12:35:13 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/09/19 12:58:28 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/09/19 14:20:47 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strnew(size_t size)
 {
-	const char	*sc;
+	char	*s;
 
-	sc = s;
-	while (n-- > 0)
-	{
-		if (*sc == (unsigned char)c)
-			return ((void *)sc);
-		sc++;
-	}
-	return (NULL);
+	s = ft_memalloc(size + 1);
+	return (s);
 }

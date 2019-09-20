@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 08:48:01 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/19 12:35:13 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/09/19 14:24:56 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/09/19 14:26:27 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_strclr(char *s)
 {
-	const char	*sc;
-
-	sc = s;
-	while (n-- > 0)
-	{
-		if (*sc == (unsigned char)c)
-			return ((void *)sc);
-		sc++;
-	}
-	return (NULL);
+	ft_memset(s, (int)'\0', ft_strlen(s));
 }
