@@ -1,5 +1,5 @@
-- ft_memset
 - ft_bzero
+- ft_memset
 - ft_memcpy
 - ft_memccpy
 - ft_memmove
