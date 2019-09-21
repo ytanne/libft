@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 20:26:57 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/20 12:08:33 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/09/19 18:55:29 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/09/19 22:22:29 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char		*r;
-	const char	*s;
-	size_t		i;
+	char	*s1;
+	size_t	i;
 
-	if (!dst || !src || !n)
+	i = -1;
+	if (!s || !f)
 		return (NULL);
-	r = dst;
-	s = src;
-	i = 0;
-	while (i < n)
-	{
-		r[i] = s[i];
-		i++;
-	}
-	return (dst);
+	s1 = ft_strnew(ft_strlen(s));
+	while (s[++i])
+		s1[i] = f(s[i]);
+	return (s1);
 }

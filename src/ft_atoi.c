@@ -6,53 +6,36 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 11:35:23 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/18 20:29:16 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/19 22:11:45 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	checksign(char *str)
+int		ft_atoi(char *s)
 {
-	int flag;
+	long	prv;
+	long	n;
+	int		sign;
 
-	if (*str == '-')
+	n = 0;
+	while ((*s >= 9 && *s <= 13) || (*s == 32))
+		s++;
+	sign = 1;
+	if (*s == '-')
+		sign = -1;
+	if (*s == '+' || *s == '-')
+		s++;
+	while (*s >= '0' && *s <= '9')
 	{
-		flag = -1;
+		prv = n;
+		n = n * 10 + (*s++ - '0');
+		if (prv > n)
+		{
+			if (sign == 1)
+				return (-1);
+			return (0);
+		}
 	}
-	else if (*str == '+')
-	{
-		flag = 1;
-	}
-	else
-		flag = 0;
-	return (flag);
-}
-
-int		ft_atoi(char *str)
-{
-	int		result;
-	int		temp;
-	int		flag;
-
-	result = 0;
-	flag = 0;
-	while ((*str == 9) || (*str == 32))
-		str++;
-	flag = checksign(str);
-	if (flag != 0)
-		str++;
-	else
-		flag = 1;
-	while (*str != '\0')
-	{
-		temp = result;
-		if ((*str < 48) || (*str > 57))
-			return (flag * temp / 10);
-		result += (*str - '0');
-		if (*(str + 1) != '\0')
-			result *= 10;
-		str++;
-	}
-	return (result * flag);
+	return ((int)(n * sign));
 }

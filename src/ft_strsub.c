@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 20:26:57 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/20 12:08:33 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/09/20 09:14:13 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/09/20 14:50:25 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char		*r;
-	const char	*s;
-	size_t		i;
-
-	if (!dst || !src || !n)
+	char	*r;
+	size_t	i;
+	
+	i = -1;
+	if (!s)
 		return (NULL);
-	r = dst;
-	s = src;
-	i = 0;
-	while (i < n)
-	{
-		r[i] = s[i];
-		i++;
-	}
-	return (dst);
+	r = ft_strnew(len);
+	if (!r)
+		return (NULL);
+	while (++i < len)
+		r[i] = s[start + i];
+	r[i] = '\0';
+	return (r);
 }

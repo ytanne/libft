@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 16:05:54 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/18 22:41:34 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/20 15:17:19 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+static void	ft_putchar(char *c)
+{
+	write(1, c, 1);
+}
 
 int main(void)
 {
@@ -33,12 +40,17 @@ int main(void)
 	printf("Bzero: %s\n", s1);
 	
 	//Memcpy function test
-	char	s3[50] = "Hello world of 42 in Silicon Valley";
+	char	s3[50]; // = "Hello world of 42 in Silicon Valley";
 	char	s2[50];
+	char	s222[50];
 
-	i = 15;
-	ft_memcpy(s2, s3 + 3, i);
+	i = 60;
+	ft_bzero(s3, 50);
+	ft_bzero(s222, 50);
+	printf("Memcpy spec test 1: %s\n", ft_memcpy(NULL, NULL, i));
+	printf("Memcpy spec test 2: %s\n", memcpy(NULL, NULL, i));
 	printf("Memcpy: %s\n", s2);
+	printf("Memcpy real: %s\n", s222);
 
 	//Memccpy function test
 	char	s16[50] = "Hello world of 42 in Silicon Valley";
@@ -76,7 +88,11 @@ int main(void)
 	char	*s9;
 
 	s9 = ft_strdup(s8);
-	printf("Strdup: %s\n", s9);
+	printf("Strdup: ");
+	while (*s9 != '\0')
+		printf("%c", *(s9)++);
+	printf("\n");
+	//printf("Strdup: %s\n", s9);
 
 	//Strcpy function test
 	char	s10[] = "Function are productions of beautiful mind";
@@ -90,8 +106,8 @@ int main(void)
 	char	s13[100] = "Before character generators were available, the p";
 	char	s100[100] = "Before character generators were available, the p";
 
-	ft_strncpy(s13, s12, 46);
-	strncpy(s100, s12, 46);
+	ft_strncpy(s13, s12, 55);
+	strncpy(s100, s12, 55);
 	printf("Strncpy: %s\n", s13);
 	printf("original strncpy: %s\n", s100);
 
@@ -146,8 +162,9 @@ int main(void)
 	printf("Strnstr: %d\n", ft_strncmp(s28, "Functions", 3));
 
 	//Atoi function test
-	char	s29[] = "193";
-	printf("Atoi: %d\n", ft_atoi(s29));
+	//char	s29[] = "193";
+	printf("Atoi: %d\n", ft_atoi("9223372036854775806"));
+	printf("real atoi mf: %d\n", atoi("9223372036854775806"));
 
 	//isalpha function test
 	char	s30 = '1';
@@ -187,6 +204,36 @@ int main(void)
 	printf("tolower: %c\n", ft_tolower('a'));
 	printf("tolower: %c\n", ft_tolower('A'));
 	printf("tolower: %c\n", ft_tolower('1'));
+
+	//ft_memalloc function test
+	char	*s35;
+	s35 = ft_memalloc(10);
+
+	//ft_striter function test
+	char	s36[] = "Hello world of 42\n";
+	ft_striter(s36, ft_putchar);
+
+	//ft_strsub function test
+	char	s37[] = "School 42 is located in Silicon Valley";
+	printf("ft_strsub: %s\n", ft_strsub(s37, 5, 10));
+
+	//ft_strjoin function test
+	char	s38[] = "School 42 is located in Silicon Valley";
+	char	s39[] = " and you know that it is a great place!";
+	printf("ft_strjoin: %s\n", ft_strjoin(s38, s39));
+
+	//ft_strsub function test
+	char	s40[] = "  \tSome random stuff that comes out of my head! \n  \t";
+	printf("ft_strsub test: %s\n", ft_strtrim(s40));
+	printf("real str for the test: %s\n", s40);
+
+	//ft_strsplit function test
+	char	s41[] = "hello fellow students";
+	char	**s42 = ft_strsplit(s41, ' ');
+	printf("%s\n", s42[1]);
+
+
+
 
 	return (0);
 }
