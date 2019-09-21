@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 16:05:54 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/20 15:17:19 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/20 21:58:26 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-static void	ft_putchar(char *c)
+static void	ft_putchar2(char *c)
 {
 	write(1, c, 1);
 }
@@ -211,7 +211,7 @@ int main(void)
 
 	//ft_striter function test
 	char	s36[] = "Hello world of 42\n";
-	ft_striter(s36, ft_putchar);
+	ft_striter(s36, ft_putchar2);
 
 	//ft_strsub function test
 	char	s37[] = "School 42 is located in Silicon Valley";
@@ -232,7 +232,11 @@ int main(void)
 	char	**s42 = ft_strsplit(s41, ' ');
 	printf("%s\n", s42[1]);
 
+	//ft_itoa function test
+	printf("ft_itoa test: %s\n", ft_itoa(123));
 
+	//ft_putnbr function test
+	ft_putnbr(123);
 
 
 	return (0);
