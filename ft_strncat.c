@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 22:28:09 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/18 22:39:01 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/09/21 14:43:37 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/09/22 09:52:20 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_toupper(int c)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	unsigned char	cc;
-	
-	cc = c;
-	if (cc >= 97 && c <= 122)
-		cc -= 32;
-	return ((int)cc);
+	if (ft_strlen(s2) < n)
+		ft_strcpy(s1 + ft_strlen(s1), s2);
+	else
+	{
+		ft_strncpy(s1 + ft_strlen(s1), s2, n);
+		s1[ft_strlen(s1) + n] = '\0';
+	}
+	return (s1);
 }

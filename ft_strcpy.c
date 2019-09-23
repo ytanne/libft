@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 12:32:32 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/20 12:07:33 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/21 19:52:23 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strcpy(char *dst, const char *src)
 {
 	size_t	i;
 
-	if (!dst || !src)
+	if (!dst && !src)
 		return (NULL);
 	i = -1;
 	while (src[++i] != '\0')

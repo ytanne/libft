@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 15:56:37 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/19 12:36:44 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/09/20 20:43:59 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/09/22 16:20:29 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include "unistd.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_putchar(char c)
 {
-	void	*ptr;
-	
-	ptr = (void *)malloc(sizeof(void) * size);
-	if (!ptr)
-		return (NULL);
-	else
-		ft_bzero(ptr, size);
-	return (ptr);
+	int cc;
+
+	cc = (int)c;
+	write(1, &cc, 1);
 }

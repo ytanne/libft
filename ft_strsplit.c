@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 13:36:02 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/20 15:08:00 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/22 16:19:31 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char			**ft_strsplit(char const *s, char c)
 		return (NULL);
 	while (i < l && s[j] != '\0' && s[k] != '\0')
 	{
-		while (s[j] == c)
+		while (s[j] == c && s[j])
 			j++;
 		k = j;
 		while (s[k] != c && s[k] != '\0')

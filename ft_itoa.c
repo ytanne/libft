@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 18:07:17 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/20 20:39:43 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/21 14:33:31 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@ static size_t	ft_intlen(int n)
 		return (1);
 	while (n != 0)
 	{
-		n = n/10;
+		n = n / 10;
 		l++;
 	}
 	return (l);
 }
-
-#include <stdio.h>
 
 char			*ft_itoa(int n)
 {

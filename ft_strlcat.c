@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 09:17:41 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/18 09:23:22 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/09/17 21:17:31 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/09/22 16:23:30 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int		l;
+	size_t	srclen;
+	size_t	dstlen;
+	
+	srclen = ft_strlen(src);
+	dstlen = ft_strlen(dst);
 
-	l = ft_strlen(s);
-	while (--l >= 0)
-		if (s[l] == (char)c)
-			return ((char *)(s + l));
-	return (NULL);
+	if (dstlen >= dstsize)
+		return (srclen + dstsize);
+	if (srclen < dstsize - dstlen)
+		ft_memcpy(dst + dstlen, src, srclen + 1);
+	else
+	{
+		ft_memcpy(dst + dstlen, src, dstsize - dstlen - 1);
+		dst[dstlen + dstsize - 1] = '\0';
+	}
+	return (dstlen + srclen);
 }

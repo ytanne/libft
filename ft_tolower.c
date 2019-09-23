@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 09:32:17 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/19 15:19:05 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/09/18 22:42:20 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/09/21 14:36:26 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int		ft_tolower(int c)
 {
-	unsigned char	*tmp;
+	unsigned char	cc;
 
-	tmp = ft_memalloc(len);
-	ft_memcpy(tmp, src, len);
-	ft_memcpy(dst, tmp, len);
-	ft_memdel((void **)&tmp);
-	return (dst);
+	cc = c;
+	if (cc >= 65 && c <= 90)
+		cc += 32;
+	return ((int)cc);
 }

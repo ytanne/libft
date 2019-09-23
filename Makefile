@@ -6,21 +6,21 @@
 #    By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/16 21:08:37 by yorazaye          #+#    #+#              #
-#    Updated: 2019/09/20 22:20:18 by yorazaye         ###   ########.fr        #
+#    Updated: 2019/09/21 15:23:21 by yorazaye         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FT_C = src/ft_memset.c src/ft_bzero.c src/ft_memcpy.c src/ft_memmove.c src/ft_memcmp.c\
-	   src/ft_strlen.c src/ft_strdup.c src/ft_strcpy.c src/ft_strncpy.c src/ft_strcat.c\
-	   src/ft_memccpy.c src/ft_strlcat.c src/ft_memchr.c src/ft_strchr.c src/ft_strrchr.c\
-	   src/ft_strstr.c src/ft_strnstr.c src/ft_strcmp.c src/ft_strncmp.c src/ft_atoi.c\
-	   src/ft_isalpha.c src/ft_isdigit.c src/ft_isalnum.c src/ft_isascii.c src/ft_isprint.c\
-	   src/ft_toupper.c src/ft_tolower.c src/ft_memalloc.c src/ft_memdel.c src/ft_strnew.c\
-	   src/ft_strdel.c src/ft_strclr.c src/ft_striter.c src/ft_striteri.c src/ft_strmap.c\
-	   src/ft_strmapi.c src/ft_strequ.c src/ft_strnequ.c src/ft_strsub.c src/ft_strjoin.c\
-	   src/ft_strtrim.c src/ft_strsplit.c src/ft_itoa.c src/ft_putchar.c src/ft_putstr.c\
-	   src/ft_putendl.c src/ft_putnbr.c src/ft_putchar_fd.c src/ft_putstr_fd.c\
-	   src/ft_putendl_fd.c src/ft_putnbr_fd.c
+FT_C = ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memcmp.c\
+	   ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c ft_strcat.c\
+	   ft_memccpy.c ft_strlcat.c ft_memchr.c ft_strchr.c ft_strrchr.c\
+	   ft_strstr.c ft_strnstr.c ft_strcmp.c ft_strncmp.c ft_atoi.c\
+	   ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
+	   ft_toupper.c ft_tolower.c ft_memalloc.c ft_memdel.c ft_strnew.c\
+	   ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c\
+	   ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c\
+	   ft_strtrim.c ft_strsplit.c ft_itoa.c ft_putchar.c ft_putstr.c\
+	   ft_putendl.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c\
+	   ft_putendl_fd.c ft_putnbr_fd.c ft_strncat.c
 FT_I = includes
 FT_A = libft.a
 FT_O = ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_memcmp.o\
@@ -33,23 +33,22 @@ FT_O = ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_memcmp.o\
 	   ft_strmapi.o ft_strequ.o ft_strnequ.o ft_strsub.o ft_strjoin.o\
 	   ft_strtrim.o ft_strsplit.o ft_itoa.o ft_putchar.o ft_putstr.o\
 	   ft_putendl.o ft_putnbr.o ft_putchar_fd.o ft_putstr_fd.o\
-	   ft_putendl_fd.o ft_putnbr_fd.o
-NAME = test
+	   ft_putendl_fd.o ft_putnbr_fd.o ft_strncat.o
+NAME = libft.a
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): compile
-	@ar -rc $(FT_A) $(FT_O)
-	@gcc -o $(NAME) $(NAME).c -L. -lft -I $(FT_I) $(FLAGS)
+$(NAME): $(FT_O)
+	ar -rc $(NAME) $(FT_O) && ranlib $(NAME)
 
-compile:
-	@gcc -c $(FT_C) -I $(FT_I) $(FLAGS)
+$(FT_O):
+	gcc -c $(FT_C) -I $(FT_I) $(FLAGS)
 
 clean:
-	@rm -f $(FT_O) $(FT_A)
+	rm -f $(FT_O)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all

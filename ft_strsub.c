@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 10:32:19 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/17 11:48:33 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/09/20 09:14:13 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/09/21 14:32:06 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int		r;
-	char	*str1;
-	char	*str2;
-	
-	str1 = (char *)s1;
-	str2 = (char *)s2;
-	r = 0;
-	while (n-- > 0)
-	{
-		r = *(str1++) - *(str2++);
-		if (r != 0)
-			return ((int)r);
-	}
-	return ((int)r);
+	char	*r;
+	size_t	i;
+
+	i = -1;
+	if (!s)
+		return (NULL);
+	r = ft_strnew(len);
+	if (!r)
+		return (NULL);
+	while (++i < len)
+		r[i] = s[start + i];
+	r[i] = '\0';
+	return (r);
 }
