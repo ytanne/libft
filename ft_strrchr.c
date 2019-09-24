@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 09:17:41 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/22 19:31:29 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/23 10:25:55 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ char	*ft_strrchr(const char *s, int c)
 		sc++;
 	}
 	if (*sc == cc)
-		r = sc; // t = (char *)(s + i); 
+		r = sc;
 	return (r);
 }

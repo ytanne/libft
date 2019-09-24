@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 18:55:29 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/19 22:22:29 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/23 12:33:20 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	i = -1;
 	if (!s || !f)
 		return (NULL);
-	s1 = ft_strnew(ft_strlen(s));
+	if (!(s1 = ft_strnew(ft_strlen(s))))
+		return (NULL);
 	while (s[++i])
 		s1[i] = f(s[i]);
 	return (s1);

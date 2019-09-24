@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 22:17:16 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/20 22:20:50 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/23 15:52:49 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,17 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*s;
-
-	if ((s = ft_itoa(n)))
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else if (n >= -2147483648 && n < 0)
 	{
-		ft_putstr_fd(s, fd);
-		ft_strdel(&s);
+		ft_putchar_fd('-', fd);
+		n *= -1;
+	}
+	else
+	{
+		if (n > 9)
+			ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd((n % 10) + '0', fd);
 	}
 }

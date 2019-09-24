@@ -6,18 +6,13 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 22:42:20 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/21 14:36:26 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/23 12:16:06 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int		ft_tolower(int c)
 {
-	unsigned char	cc;
-
-	cc = c;
-	if (cc >= 65 && c <= 90)
-		cc += 32;
-	return ((int)cc);
+	if (c >= 65 && c <= 90)
+		c += 32;
+	return ((int)c);
 }

@@ -6,19 +6,16 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 20:31:37 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/18 21:55:14 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/23 16:51:16 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include <libft.h>
 
 int		ft_isalpha(int c)
 {
-	unsigned char cc;
-
-	cc = c;
-	if ((cc >= 65 && cc <= 90) || (cc >= 97 && cc <= 122))
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1);
-	return (0);
+	else
+		return (0);
 }

@@ -6,16 +6,13 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 20:43:59 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/22 16:20:29 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/23 12:38:51 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unistd.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(int c)
 {
-	int cc;
-
-	cc = (int)c;
-	write(1, &cc, 1);
+	write(1, &c, 1);
 }
