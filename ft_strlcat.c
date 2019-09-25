@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 21:17:31 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/23 16:30:25 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/24 16:16:32 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	else
 	{
 		ft_memcpy(dst + dstlen, src, dstsize - dstlen - 1);
-		dst[dstlen + dstsize - 1] = '\0';
+		dst[dstsize - 1] = '\0';
 	}
 	return (dstlen + srclen);
 }

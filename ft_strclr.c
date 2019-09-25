@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 14:24:56 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/19 14:26:27 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/24 18:42:53 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_strclr(char *s)
 {
+	if (!s)
+		return ;
 	ft_memset(s, (int)'\0', ft_strlen(s));
 }

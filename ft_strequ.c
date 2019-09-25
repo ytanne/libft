@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 22:28:51 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/19 22:31:15 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/24 18:51:43 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int		ft_strequ(char const *s1, char const *s2)
 {
+	if (!s1 || !s2)
+		return (1);
 	if (ft_strcmp(s1, s2) != 0)
 		return (0);
 	else

@@ -6,62 +6,59 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 13:36:02 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/22 16:19:31 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/25 08:26:11 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static size_t	ft_getsize(const char *s, char c)
+static size_t	ft_cw(char const *s, char c)
 {
 	size_t	i;
-	size_t	l;
 	int		fl;
+	int		len;
 
 	i = 0;
-	l = 0;
+	fl = 0;
+	len = 0;
 	while (s[i] != '\0')
 	{
-		fl = 0;
-		while (s[i] != c && s[i] != '\0')
+		if (s[i] != c && fl == 0)
 		{
-			i++;
 			fl = 1;
+			len++;
 		}
-		if (s[i] == '\0')
-			fl = 1;
-		if (fl == 1)
-			l++;
+		else if (s[i] == c)
+			fl = 0;
 		i++;
 	}
-	return (l);
+	return (len);
 }
 
 char			**ft_strsplit(char const *s, char c)
 {
 	char	**r;
-	size_t	l;
-	size_t	i;
-	size_t	k;
-	size_t	j;
+	int		fl;
+	size_t	i[3];
 
-	l = ft_getsize(s, c);
-	i = 0;
-	j = 0;
-	k = 0;
-	r = (char **)malloc(sizeof(char *) * l);
-	if (!r)
+	fl = 0;
+	i[0] = 0;
+	i[2] = -1;
+	if (!s || !c)
 		return (NULL);
-	while (i < l && s[j] != '\0' && s[k] != '\0')
+	if (!(r = (char **)malloc(sizeof(char *) * (ft_cw(s, c) + 1))))
+		return (NULL);
+	while (++i[2] < ft_cw(s, c))
 	{
-		while (s[j] == c && s[j])
-			j++;
-		k = j;
-		while (s[k] != c && s[k] != '\0')
-			k++;
-		r[i++] = ft_strsub(s, j, k - j);
-		j = k;
+		while (s[i[0]] == c && s[i[0]] != '\0')
+			i[0]++;
+		i[1] = i[0];
+		while (s[i[1]] != c && s[i[1]] != '\0')
+			i[1]++;
+		r[i[2]] = ft_strsub(s, i[0], i[1] - i[0]);
+		i[0] = i[1];
 	}
+	r[i[2]] = (NULL);
 	return (r);
 }

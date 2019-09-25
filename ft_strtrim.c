@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 12:12:44 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/23 14:36:50 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/24 19:03:26 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strtrim(char const *s)
 	char	*r;
 	size_t	l;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	while ((s[i] == ' ' || s[i] == '\n' || s[i] == '\t') && s[i] != '\0')
 		i++;
