@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 20:55:06 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/26 13:07:05 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/09/25 09:54:36 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/09/25 10:52:31 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	if (n == -2147483648)
-		ft_putstr("-2147483648");
-	else
+	t_list	*tmp;
+
+	tmp = lst;
+	while (tmp)
 	{
-		if (n >= -2147483648 && n < 0)
-		{
-			ft_putchar('-');
-			n *= -1;
-		}
-		if (n > 9)
-			ft_putnbr(n / 10);
-		ft_putchar((n % 10) + '0');
+		f(tmp);
+		tmp = tmp->next;
 	}
 }
