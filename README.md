@@ -94,6 +94,7 @@ cd .. && rm -rf libft
 | ft_btree_apply_sf | Traverses through binary tree in postorder and applies function to each element |
 | ft_print_bits | Prints bits |
 
- 
 # Comments
-**Didn't check for norm and moulinette yet**
+**Everything is checked according to norm and moulinette**
+Thanks for reaching the end of README :D
+![](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwivwJvqi_DkAhU1HDQIHVjXDr0QjRx6BAgBEAQ&url=%2Furl%3Fsa%3Di%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dimages%26cd%3D%26ved%3D%26url%3Dhttps%253A%252F%252Fwww.knok.org%252Fupload-your-photos%252F%26psig%3DAOvVaw2dcbqWMX6oYrEaQTn6WbVR%26ust%3D1569642410389034&psig=AOvVaw2dcbqWMX6oYrEaQTn6WbVR&ust=1569642410389034)
