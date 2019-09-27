@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   btree_create_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 11:18:18 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/26 17:13:22 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/08/23 13:07:15 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/09/26 16:22:14 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int		ft_strcmp(const char *s1, const char *s2)
+t_btree	*ft_btree_new_node(void *item)
 {
-	unsigned int	result;
-	size_t			i;
-	unsigned char	*sc1;
-	unsigned char	*sc2;
+	t_btree *new_tree;
 
-	i = 0;
-	result = 0;
-	sc1 = (unsigned char *)s1;
-	sc2 = (unsigned char *)s2;
-	while ((sc1[i] != '\0') || (sc2[i] != '\0'))
+	if (!item)
+		return (NULL);
+	new_tree = (t_btree *)malloc(sizeof(*new_tree));
+	if (new_tree)
 	{
-		result = (unsigned int)(sc1[i] - sc2[i]);
-		if (result != 0)
-			return ((int)result);
-		i++;
+		new_tree->item = item;
+		new_tree->left = 0;
+		new_tree->right = 0;
 	}
-	return (result);
+	return (new_tree);
 }

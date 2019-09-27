@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 16:00:51 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/25 10:43:23 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/09/26 16:54:12 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,18 @@ void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+typedef struct	s_btree
+{
+	struct s_btree	*left;
+	struct s_btree	*right;
+	void			*item;
+}				t_btree;
+
+t_btree			*ft_btree_new_node(void *item);
+void			ft_btree_apply_pr(t_btree *root, void (*f)(void *));
+void			ft_btree_apply_in(t_btree *root, void (*f)(void *));
+void			ft_btree_apply_sf(t_btree *root, void (*f)(void *));
+void			ft_print_bits(unsigned char octet);
 
 #endif
