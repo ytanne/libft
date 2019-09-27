@@ -26,5 +26,15 @@ Optional
 cd .. && rm -rf libft
 ```
 
+# Functions Descriptions
+
+| Function | Description |
+| -------- | ----------- |
+| ft_memset | Fill a byte string with a byte value |
+| ft_bzero | Write zeroes to a byte string |
+| ft_memcpy | Copy memory area |
+| ft_memccpy | Copy string until character found |
+|  |  |
+
 # Comments
 **Didn't check for norm and moulinette yet**
