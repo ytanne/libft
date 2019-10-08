@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/12 11:35:23 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/27 14:01:52 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/09/27 07:37:54 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/10/07 02:48:34 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
 
-int		ft_atoi(char *s)
-{
-	long	prv;
-	long	n;
-	int		sign;
+# define GET_NEXT_LINE_H
 
-	n = 0;
-	while ((*s >= 9 && *s <= 13) || (*s == 32))
-		s++;
-	sign = 1;
-	if (*s == '-')
-		sign = -1;
-	if (*s == '+' || *s == '-')
-		s++;
-	while (*s >= '0' && *s <= '9')
-	{
-		prv = n;
-		n = n * 10 + (*s++ - '0');
-		if (prv > n)
-		{
-			if (sign == 1)
-				return (-1);
-			return (0);
-		}
-	}
-	return ((int)(n * sign));
-}
+# include <sys/types.h>
+# include <sys/uio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+
+int		get_next_line(const int fd, char **line);
+
+# define BUFF_SIZE 20
+# define FD_SIZE 4096
+
+#endif

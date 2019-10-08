@@ -6,7 +6,7 @@
 #    By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/16 21:08:37 by yorazaye          #+#    #+#              #
-#    Updated: 2019/09/26 17:12:45 by yorazaye         ###   ########.fr        #
+#    Updated: 2019/10/08 09:22:25 by yorazaye         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ FT_C = ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memcmp.c\
 	   ft_putendl_fd.c ft_putnbr_fd.c ft_strncat.c ft_lstnew.c\
 	   ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c\
 	   ft_btree_new_node.c ft_btree_apply_pr.c ft_btree_apply_in.c\
-	   ft_btree_apply_sf.c ft_print_bits.c
-FT_I = libft.h
+	   ft_btree_apply_sf.c ft_print_bits.c get_next_line.c
+FT_I = includes
 FT_A = libft.a
 FT_O = ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_memcmp.o\
 	   ft_strlen.o ft_strdup.o ft_strcpy.o ft_strncpy.o ft_strcat.o\
@@ -39,9 +39,9 @@ FT_O = ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_memcmp.o\
 	   ft_putendl_fd.o ft_putnbr_fd.o ft_strncat.o ft_lstnew.o\
 	   ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_lstiter.o ft_lstmap.o\
 	   ft_btree_new_node.o ft_btree_apply_pr.o ft_btree_apply_in.o\
-	   ft_btree_apply_sf.o ft_print_bits.o
+	   ft_btree_apply_sf.o ft_print_bits.o get_next_line.o
 NAME = libft.a
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 
 all: $(NAME)
 
