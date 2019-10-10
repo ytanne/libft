@@ -6,14 +6,14 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 20:45:20 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/10/08 09:23:27 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/10/09 23:53:56 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 #include "get_next_line.h"
 
-static void	line_maker(char **dest, char **src)
+void	line_maker(char **dest, char **src)
 {
 	char	*ptr;
 
@@ -28,7 +28,7 @@ static void	line_maker(char **dest, char **src)
 	ft_strdel(src);
 }
 
-static int	init(char **line, char **str)
+int		init(char **line, char **str)
 {
 	int		i;
 	char	*tmp;
@@ -54,7 +54,7 @@ static int	init(char **line, char **str)
 	return (r);
 }
 
-static int	need_to_decide(char *str, int byte, char **line)
+int		need_to_decide(char *str, int byte, char **line)
 {
 	if (byte < 0)
 		return (-1);
@@ -70,14 +70,15 @@ int		get_next_line(int fd, char **line)
 	int			byte;
 	static char	*heap[FD_SIZE];
 
-	if (fd < 0 || !line)
+	tmp = NULL;
+	if ((fd < 0 || line == NULL) || (read(fd, tmp, 0) < 0))
 		return (-1);
 	*line = NULL;
 	if (heap[fd])
 		if (init(line, &heap[fd]) == 1)
 			return (1);
 	while ((tmp = ft_strnew(BUFF_SIZE)) &&
-			((byte = read(fd, tmp, BUFF_SIZE)) > 0))
+				((byte = read(fd, tmp, BUFF_SIZE)) > 0))
 	{
 		tmp[byte] = '\0';
 		line_maker(&heap[fd], &tmp);
