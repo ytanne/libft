@@ -6,12 +6,12 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 20:45:20 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/10/09 23:53:56 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/10/10 14:24:31 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "get_next_line.h"
+#include "includes/libft.h"
+#include "includes/get_next_line.h"
 
 void	line_maker(char **dest, char **src)
 {
