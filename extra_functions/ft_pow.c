@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 15:56:37 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/09/21 14:32:38 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/11/02 19:36:48 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/11/03 13:33:10 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
-
-void	*ft_memalloc(size_t size)
+unsigned long long int	ft_pow(int nbr, int power)
 {
-	void	*ptr;
+	unsigned long long int	r;
 
-	ptr = (void *)malloc(sizeof(void) * size);
-	if (!ptr)
-		return (NULL);
-	else
-		ft_bzero(ptr, size);
-	return (ptr);
+	r = 1;
+	while (power-- > 0)
+		r *= nbr;
+	return (r);
 }
