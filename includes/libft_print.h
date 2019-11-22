@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   libft_print.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/27 07:37:54 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/10/24 14:54:50 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/11/21 17:23:28 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/11/21 17:24:46 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
+#ifndef LIBFT_PRINT_H
+# define LIBFT_PRINT_H
 
-# define GET_NEXT_LINE_H
+# include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-
-int		get_next_line(const int fd, char **line);
-
-# define BUFF_SIZE 32
-# define FD_SIZE 256
+void			ft_putchar(char c);
+void			ft_putstr(char const *s);
+void			ft_putendl(char const *s);
+void			ft_putnbr(int n);
+void			ft_putchar_fd(char c, int fd);
+void			ft_putstr_fd(char const *s, int fd);
+void			ft_putendl_fd(char const *s, int fd);
+void			ft_putnbr_fd(int n, int fd);
+void			ft_print_bits(unsigned char octet);
 
 #endif

@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_extra.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/27 07:37:54 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/10/24 14:54:50 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/11/18 17:34:01 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/11/21 17:33:52 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
+#include "ft_printf.h"
 
-# define GET_NEXT_LINE_H
+void		get_fwpl(char *str, t_print **t)
+{
+	int		i;
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
+	i = -1;
+	while (++i < 4)
+		g_fwpl[i]((char *)str, t);
+}
 
-int		get_next_line(const int fd, char **line);
+int			end_it_pls(va_list av, t_print **t, int numb)
+{
+	delete_str(t);
+	va_end(av);
+	return (numb);
+}
 
-# define BUFF_SIZE 32
-# define FD_SIZE 256
-
-#endif
+void		get_started(int *count, t_print **t)
+{
+	count[0] = 0;
+	count[1] = 0;
+	*t = new_str();
+}
